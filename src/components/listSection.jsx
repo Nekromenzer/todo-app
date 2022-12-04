@@ -1,30 +1,45 @@
 import React from 'react'
 
-const ListSection = () => {
+const ListSection = ({ todoList, setTodoList }) => {
+  const handleComplete = id => {
+    const taskListCopy = [...todoList]
+    const makeComplete = taskListCopy.map(item =>
+      item.id === id ? { ...item, isCompleted: !item.isCompleted } : item
+    )
+    setTodoList(makeComplete)
+    console.log(makeComplete)
+  }
   return (
     <>
-      <div className='flex mb-4 items-center bg-green-50 px-3 py-1 border border-amber rounded cursor-pointer'>
-        <p className='w-full text-grey-darkest'>
-          Add another component to Tailwind Components
-        </p>
-        <button className='flex-no-shrink px-2 py-1 ml-4 mr-2 border-2 rounded hover:text-white text-green border-green hover:bg-green-300'>
-          ✔️
-        </button>
-        <button className='flex-no-shrink px-2 py-1 border-2 rounded text-red border-red hover:text-white hover:bg-red-600'>
-          Delete
-        </button>
-      </div>
-      <div className='flex mb-4 items-center bg-red-50 px-3 py-1 border border-amber rounded cursor-pointer'>
-        <p className='w-full text-grey-darkest line-through'>
-          Add another component to Tailwind Components
-        </p>
-        <button className='flex-no-shrink px-2 py-1 ml-4 mr-2 border-2 rounded hover:text-white text-green border-orange hover:bg-orange-300'>
-          ❌
-        </button>
-        <button className='flex-no-shrink px-2 py-1 border-2 rounded text-red border-red hover:text-white hover:bg-red-600'>
-          Delete
-        </button>
-      </div>
+      {todoList?.map((item, index) => (
+        <div
+          className={`flex mb-4 items-center ${
+            !item.isCompleted ? 'bg-green-50' : 'bg-red-50'
+          } px-3 py-1 border border-amber rounded cursor-pointer`}
+          key={`${item.id}_${index}`}
+        >
+          <p
+            className={`w-full text-grey-darkest ${
+              item.isCompleted && 'line-through'
+            }`}
+          >
+            {item.task}
+          </p>
+          <button
+            className={`flex-no-shrink px-2 py-1 ml-4 mr-2 border-2 rounded ${
+              item.isCompleted
+                ? 'border-orange hover:bg-orange-300'
+                : 'border-green hover:bg-green-300'
+            }`}
+            onClick={() => handleComplete(item.id)}
+          >
+            {!item.isCompleted ? '✔️' : '❌'}
+          </button>
+          <button className='flex-no-shrink px-2 py-1 border-2 rounded text-red border-red hover:text-white hover:bg-red-600'>
+            Delete
+          </button>
+        </div>
+      ))}
     </>
   )
 }
