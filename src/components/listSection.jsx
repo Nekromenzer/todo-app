@@ -2,7 +2,7 @@
 import React from 'react'
 
 const ListSection = ({ todoList, setTodoList, filterVal }) => {
-  // complete fucntion
+  // complete function
   const handleComplete = id => {
     const taskListCopy = [...todoList]
     const makeComplete = taskListCopy.map(item =>
