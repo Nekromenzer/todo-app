@@ -19,7 +19,7 @@ const ListSection = ({ todoList, setTodoList, filterVal }) => {
 
   return (
     <>
-      {todoList?.map(
+      {todoList?.sort((a,b) => a.isCompleted - b.isCompleted).map(
         (item, index) =>
           ((item.isCompleted && filterVal === 'completed') ||
             (!item.isCompleted && filterVal === 'uncompleted') ||
