@@ -27,8 +27,9 @@ const HeaderSection = ({ todoList, setTodoList, filterVal, setFilterVal }) => {
           onChange={e => setTask(e.target.value)}
         />
         <button
-          className='p-2 border-2 rounded text-teal-900 border-teal hover:text-white hover:bg-teal-700 bg-teal'
+          className='p-2 border-2 rounded text-teal-900 border-teal hover:text-white hover:bg-teal-700 bg-teal disabled:text-gray-800 disabled:bg-gray-400'
           onClick={() => handleAddTask()}
+          disabled={task === ''}
         >
           Add
         </button>
