@@ -7,8 +7,14 @@ const ListSection = ({ todoList, setTodoList }) => {
       item.id === id ? { ...item, isCompleted: !item.isCompleted } : item
     )
     setTodoList(makeComplete)
-    console.log(makeComplete)
   }
+
+  const handleDelete = id => {
+    const taskListCopy = [...todoList]
+    const makeDelete = taskListCopy.filter(item => item.id !== id && item)
+    setTodoList(makeDelete)
+  }
+
   return (
     <>
       {todoList?.map((item, index) => (
@@ -18,6 +24,7 @@ const ListSection = ({ todoList, setTodoList }) => {
           } px-3 py-1 border border-amber rounded cursor-pointer`}
           key={`${item.id}_${index}`}
         >
+          <span className='mr-4 font-bold text-sm'>{index + 1}.</span>
           <p
             className={`w-full text-grey-darkest ${
               item.isCompleted && 'line-through'
@@ -35,7 +42,10 @@ const ListSection = ({ todoList, setTodoList }) => {
           >
             {!item.isCompleted ? '✔️' : '❌'}
           </button>
-          <button className='flex-no-shrink px-2 py-1 border-2 rounded text-red border-red hover:text-white hover:bg-red-600'>
+          <button
+            className='flex-no-shrink px-2 py-1 border-2 rounded text-red border-red hover:text-white hover:bg-red-600'
+            onClick={() => handleDelete(item.id)}
+          >
             Delete
           </button>
         </div>
