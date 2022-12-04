@@ -1,11 +1,11 @@
-import './App.css';
+import './App.css'
 
-function App() {
+function App () {
   return (
-    <div className="App">
-     sadasd
+    <div className='App'>
+      <span className='text-white'>sadasd</span>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
