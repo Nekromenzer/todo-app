@@ -7,10 +7,10 @@ const ListSection = () => {
         <p className='w-full text-grey-darkest'>
           Add another component to Tailwind Components
         </p>
-        <button className='flex-no-shrink px-2 py-1 ml-4 mr-2 border-2 rounded hover:text-white text-green border-green hover:bg-green'>
+        <button className='flex-no-shrink px-2 py-1 ml-4 mr-2 border-2 rounded hover:text-white text-green border-green hover:bg-green-300'>
           ✔️
         </button>
-        <button className='flex-no-shrink px-2 py-1 border-2 rounded text-red border-red hover:text-white hover:bg-red'>
+        <button className='flex-no-shrink px-2 py-1 border-2 rounded text-red border-red hover:text-white hover:bg-red-600'>
           Delete
         </button>
       </div>
@@ -21,7 +21,7 @@ const ListSection = () => {
         <button className='flex-no-shrink px-2 py-1 ml-4 mr-2 border-2 rounded hover:text-white text-green border-orange hover:bg-orange-300'>
           ❌
         </button>
-        <button className='flex-no-shrink px-2 py-1 border-2 rounded text-red border-red hover:text-white hover:bg-red'>
+        <button className='flex-no-shrink px-2 py-1 border-2 rounded text-red border-red hover:text-white hover:bg-red-600'>
           Delete
         </button>
       </div>
