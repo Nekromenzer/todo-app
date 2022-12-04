@@ -12,12 +12,11 @@ function App () {
         <div className='h-100 w-full flex items-center justify-center font-sans'>
           <div className='bg-white rounded shadow-lg p-6 m-4 w-full lg:w-1/2 '>
             <HeaderSection
-              todoList={todoList}
               setTodoList={setTodoList}
               filterVal={filterVal}
               setFilterVal={setFilterVal}
             />
-            <ListSection todoList={todoList} setTodoList={setTodoList} />
+            <ListSection todoList={todoList} setTodoList={setTodoList} filterVal={filterVal} />
           </div>
         </div>
       </div>
