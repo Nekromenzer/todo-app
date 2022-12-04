@@ -17,7 +17,7 @@ function App () {
               filterVal={filterVal}
               setFilterVal={setFilterVal}
             />
-            <ListSection />
+            <ListSection todoList={todoList} setTodoList={setTodoList} />
           </div>
         </div>
       </div>

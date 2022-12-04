@@ -11,7 +11,7 @@ const HeaderSection = ({ todoList, setTodoList, filterVal, setFilterVal }) => {
   ]
 
   const handleAddTask = () => {
-    setTodoList(pre => [...pre, { task, id: uuidv4() }])
+    setTodoList(pre => [...pre, { task, id: uuidv4(), isCompleted: false }])
     // reset the input value
     setTask('')
   }
