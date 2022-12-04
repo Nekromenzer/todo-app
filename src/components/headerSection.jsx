@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-const HeaderSection = ({ todoList, setTodoList, filterVal, setFilterVal }) => {
+const HeaderSection = ({ setTodoList, filterVal, setFilterVal, }) => {
   const [task, setTask] = useState('')
 
   const selectValue = [
@@ -35,7 +35,7 @@ const HeaderSection = ({ todoList, setTodoList, filterVal, setFilterVal }) => {
         </button>
         <select
           className='shadow appearance-none border rounded py-2 px-3  text-grey-darker flex-no-grow'
-          onChange={e => setFilterVal(e)}
+          onChange={e => setFilterVal(e.target.value)}
           value={filterVal}
         >
           {selectValue.map((item, index) => (
