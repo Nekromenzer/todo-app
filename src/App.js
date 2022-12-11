@@ -28,6 +28,7 @@ function App () {
             <HeaderSection
               setTodoList={setTodoList}
               filterVal={filterVal}
+              todoList={todoList}
               setFilterVal={setFilterVal}
             />
             <ListSection

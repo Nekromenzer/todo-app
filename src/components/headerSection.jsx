@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-const HeaderSection = ({ setTodoList, filterVal, setFilterVal, }) => {
+const HeaderSection = ({ setTodoList, filterVal, setFilterVal, todoList }) => {
   const [task, setTask] = useState('')
 
   const selectValue = [
@@ -11,7 +11,11 @@ const HeaderSection = ({ setTodoList, filterVal, setFilterVal, }) => {
   ]
 
   const handleAddTask = () => {
-    setTodoList(pre => [...pre, { task, id: uuidv4(), isCompleted: false }])
+    if (todoList) {
+      setTodoList(pre => [...pre, { task, id: uuidv4(), isCompleted: false }])
+    } else {
+      setTodoList(() => [{ task, id: uuidv4(), isCompleted: false }])
+    }
     // reset the input value
     setTask('')
   }
